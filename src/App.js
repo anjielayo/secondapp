@@ -1,16 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-import Fncomp from './components/Fncomp.js';
-import Classcomp from './components/Classcomp';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Before functional</h1>
-      <Fncomp />
-      <Classcomp />
-    </div>
+    <Router>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+      <Routes>
+        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/about" element={<About />}></Route>
+        <Route exact path="/contact" element={<Contact />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
